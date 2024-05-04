@@ -19,7 +19,8 @@ defmodule Cards do
 
     for suit <- suits do
       for value <- values  do
-        value <> " OF " <> suit
+        # value <> " OF " <> suit # concatination approach
+        "#{value} OF #{suit}"  # interpolation approach
       end
     end
 
