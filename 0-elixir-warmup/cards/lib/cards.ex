@@ -10,15 +10,13 @@ defmodule Cards do
 
     # creating a list of elements
 
-    ["ACE", "TWO", "THREE"]
+    ["ACE",  "TWO", "THREE"]
 
   end
 
 
-  def shuffle_deck(deck) do
-
-
-
+  def shuffle(deck) do # arity: refers to the numbers of arg that a function accepts (shuffe_deck/1)
+    Enum.shuffle(deck)
   end
 
 
