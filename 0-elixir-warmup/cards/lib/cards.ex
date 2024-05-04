@@ -56,5 +56,14 @@ defmodule Cards do
   end
 
 
+  @spec deal([String], Integer) :: [String]
+  @doc """
+    deals a given number of random cards from a given deck
+  """
+  def deal(deck, hand_size) do
+    Enum.split(deck, hand_size)
+  end
+
+
 
 end
