@@ -16,18 +16,25 @@ defmodule Cards do
     # shuffle will create a copy of this data structure and return the shuffled version
 
     suits = ["SPADES", "CLUBS", "HEARTS", "DIAMONDS"]
+    # solution #1
+    # # this nested loops over here will produce a list of lists
+    # # goal is to get a list of string like the spec stats
+    # # to solve this we gonna be using list <linked lists ds> using flatten
+    # cards = for suit <- suits do
+    #   for value <- values  do
+    #     # value <> " OF " <> suit # concatination approach
+    #     "#{value} OF #{suit}"  # interpolation approach
+    #   end
+    # end
 
-    # this nested loops over here will produce a list of lists
-    # goal is to get a list of string like the spec stats
-    # to solve this we gonna be using list <linked lists ds> using flatten
-    cards = for suit <- suits do
-      for value <- values  do
-        # value <> " OF " <> suit # concatination approach
-        "#{value} OF #{suit}"  # interpolation approach
+    # List.flatten(cards)
+
+
+    # solution #2
+
+    for suit <- suits,  value <- values do
+          "#{value} OF #{suit}"  # interpolation approach
       end
-    end
-
-    List.flatten(cards)
 
   end
 
