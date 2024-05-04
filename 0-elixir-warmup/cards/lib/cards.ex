@@ -11,8 +11,18 @@ defmodule Cards do
   """
   def create_deck do
     # creating a list of elements
-    ["ACE",  "TWO", "THREE"] # this is immutable -> after we call shuffle on this Data structure won't be modified
-                             # shuffle will create a copy of this data structure and return the shuffled version
+    values = ["ACE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "JACK", "QUEEN", "KING"]
+    # this is immutable -> after we call shuffle on this Data structure won't be modified
+    # shuffle will create a copy of this data structure and return the shuffled version
+
+    suits = ["SPADES", "CLUBS", "HEARTS", "DIAMONDS"]
+
+    for suit <- suits do
+      for value <- values  do
+        value <> " OF " <> suit
+      end
+    end
+
   end
 
 
