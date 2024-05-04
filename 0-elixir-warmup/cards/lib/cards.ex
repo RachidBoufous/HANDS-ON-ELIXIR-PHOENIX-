@@ -17,12 +17,17 @@ defmodule Cards do
 
     suits = ["SPADES", "CLUBS", "HEARTS", "DIAMONDS"]
 
-    for suit <- suits do
+    # this nested loops over here will produce a list of lists
+    # goal is to get a list of string like the spec stats
+    # to solve this we gonna be using list <linked lists ds> using flatten
+    cards = for suit <- suits do
       for value <- values  do
         # value <> " OF " <> suit # concatination approach
         "#{value} OF #{suit}"  # interpolation approach
       end
     end
+
+    List.flatten(cards)
 
   end
 
