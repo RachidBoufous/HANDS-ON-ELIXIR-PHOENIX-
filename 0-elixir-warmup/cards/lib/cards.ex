@@ -24,11 +24,11 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
-  @spec contains([String], String) :: Boolean
+  @spec contains?([String], String) :: Boolean
   @doc """
       checks if a deck contains a given card.
   """
-  def contains(deck, card) do
+  def contains?(deck, card) do
     Enum.member?(deck, card)
   end
 
