@@ -79,7 +79,7 @@ defmodule Cards do
 
 
 
-  @spec save(deck, filename)
+  @spec save(deck :: any(), filename :: String) :: :ok
   @doc """
     takes a deck and saves into a file with specified file name*
   """
