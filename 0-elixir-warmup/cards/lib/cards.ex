@@ -61,7 +61,9 @@ defmodule Cards do
     deals a given number of random cards from a given deck
   """
   def deal(deck, hand_size) do
-    Enum.split(deck, hand_size)
+    Enum.split(deck, hand_size)  # this will return a tuple {elem, elem}
+    # we can't do random access on elixir, but we do have matching patterns
+    # {my_cards, rest} = Enum.split(deck, hand_size) -> now my_cards has hand_size of cards, rest, has the rest of elements
   end
 
 
