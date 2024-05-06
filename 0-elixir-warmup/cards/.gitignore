@@ -24,3 +24,10 @@ cards-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# ignore binary files
+*.bin
+
+# Ignore all files without an extension
+*
+!*.*
