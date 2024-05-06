@@ -67,5 +67,15 @@ defmodule Cards do
   end
 
 
+  # Elixir code doesn't execute direclty as it is.... it has to go through multiple steps.
+  # 1. code gets fed into elixir runtime
+  # 2. transpiles all the code into Erlang (Erlang: was developed for telecoms but erlang has this weird syntax, so we write elixir as a
+  # dialect of erlang - so all code ends up runing by erlang anyways -  elxiri sole purpose is to give us an easier interface to erlang)
+  # 3. then it will be compiles and executed into something called "BEAM" (BEAM - BOGDAN SLASH BJORN'S ERLANG ABSTRACT MACHINE | BEAM is
+  # a virtual machine in which all of our code will gets executed BEAM for elixir is like JVM for JAVA)
+
+  # NOTE: some parts of erlang are not fully transpiled to elixir so we have to tap in to erlang to get access to certain system functionalities
+  # EX: file system -  to use FS u have to write some erlang code.ub
+
 
 end
