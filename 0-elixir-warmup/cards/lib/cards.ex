@@ -84,10 +84,21 @@ defmodule Cards do
     takes a deck and saves into a file with specified file name*
   """
   def save(deck, filename) do
-
     binary = :erlang.term_to_binary(deck)
     File.write(filename, binary)
   end
 
+  @spec load(filename:: String) :: :ok
+  @doc """
+    load a deck from a a given file in the fs
+  """
+  def load(filename) do
+
+    {status, binary } = File.read(filename)
+    :erlang.binary_to_term(binary)
+
+
+
+  end
 
 end

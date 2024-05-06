@@ -27,7 +27,3 @@ cards-*.tar
 
 # ignore binary files
 *.bin
-
-# Ignore all files without an extension
-*
-!*.*
