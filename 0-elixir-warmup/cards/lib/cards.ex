@@ -75,7 +75,20 @@ defmodule Cards do
   # a virtual machine in which all of our code will gets executed BEAM for elixir is like JVM for JAVA)
 
   # NOTE: some parts of erlang are not fully transpiled to elixir so we have to tap in to erlang to get access to certain system functionalities
-  # EX: file system -  to use FS u have to write some erlang code.ub
+  # EX: file system -  to use FS u have to write some erlang code.
+
+
+
+  @spec save(deck, filename)
+  @doc """
+    takes a deck and saves into a file with specified file name*
+
+  """
+  def deal(deck, filename) do
+
+    binary - :erlang.term_to_binary(deck)
+    File.write(filename, binary)
+  end
 
 
 end
