@@ -82,11 +82,10 @@ defmodule Cards do
   @spec save(deck, filename)
   @doc """
     takes a deck and saves into a file with specified file name*
-
   """
-  def deal(deck, filename) do
+  def save(deck, filename) do
 
-    binary - :erlang.term_to_binary(deck)
+    binary = :erlang.term_to_binary(deck)
     File.write(filename, binary)
   end
 
