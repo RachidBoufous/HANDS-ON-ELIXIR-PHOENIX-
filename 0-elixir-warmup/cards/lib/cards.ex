@@ -123,9 +123,16 @@ defmodule Cards do
 
   def create_hand(hand_size) do
     # passing data from function to function it's common -> elixir has it's own way of doing it called "PIPE operator"
-    deck = create_deck()
-    deck = shuffle(deck)
-    deal(deck, hand_size)
+    # deck = create_deck()
+    # deck = shuffle(deck)
+    # deal(deck, hand_size)
+
+
+    # using PIPE
+
+    create_deck()
+    |> shuffle() # PIPE here will auto inject the result in the next function first argument
+    |> deal(hand_size) # to use PIPE it has to be on first arg and only first arg, anything else won't work
   end
 
 
