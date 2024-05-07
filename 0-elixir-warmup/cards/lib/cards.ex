@@ -112,4 +112,21 @@ defmodule Cards do
     end
   end
 
+
+  @spec create_hand(hand_size::Integer) :: :ok
+  @doc """
+    this function will do the following:
+      1. create a deck
+      2. shuffle that deck
+      3. deal a hand_size hand of it
+  """
+
+  def create_hand(hand_size) do
+    # passing data from function to function it's common -> elixir has it's own way of doing it called "PIPE operator"
+    deck = create_deck()
+    deck = shuffle(deck)
+    deal(deck, hand_size)
+  end
+
+
 end
