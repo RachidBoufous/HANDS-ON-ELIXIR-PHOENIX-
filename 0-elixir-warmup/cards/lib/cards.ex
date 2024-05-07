@@ -101,8 +101,15 @@ defmodule Cards do
       :error -> "file does not exist"
       # Atoms can be think of as a string -> they can be used as some sort of response messages only developers see
     end
+  end
 
 
+  def load2(filename) do
+    case File.read(filename)
+    do
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      {:error, reason} -> "error was thrown: #{reason}"
+    end
   end
 
 end
