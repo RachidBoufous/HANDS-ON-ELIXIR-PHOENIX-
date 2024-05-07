@@ -1,4 +1,7 @@
 defmodule Cards do
+  @moduledoc """
+    A card module that handles all the need action to create a deck, shuffle it, deal a n size of it, check if X card exist in Y deck
+  """
 
 
   def hello do
