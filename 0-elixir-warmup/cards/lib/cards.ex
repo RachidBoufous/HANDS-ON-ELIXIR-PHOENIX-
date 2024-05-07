@@ -92,11 +92,15 @@ defmodule Cards do
   @doc """
     load a deck from a a given file in the fs
   """
-  def load(filename) do
+  def load(filename) do # if file doesn't exist it will throw enoent which is no entity
 
     {status, binary } = File.read(filename)
-    :erlang.binary_to_term(binary)
 
+    case status do
+      :ok -> :erlang.binary_to_term(binary) # :ok :error are called atom > can be used for status codes, flow controle, or messages
+      :error -> "file does not exist"
+      # Atoms can be think of as a string -> they can be used as some sort of response messages only developers see
+    end
 
 
   end
