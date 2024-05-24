@@ -4,10 +4,6 @@ defmodule Cards do
   """
 
 
-  def hello do
-    "hi there" # we don't have to write the return keyword as elixir return the last object on function scope
-  end
-
   @spec create_deck() :: [String]
   @doc """
       returns an orderd deck
