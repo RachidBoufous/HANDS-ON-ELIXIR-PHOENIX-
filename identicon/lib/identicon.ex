@@ -10,14 +10,18 @@ defmodule Identicon do
      if we provide the same string twice, the same identicon should be produced.
   """
 
-
+ 
   def main(input) do
     input
     |> compute_md5
   end
 
   @doc """
+    Takes a string and convert it into a list after hashing it using md5
 
+  ## Examples:
+      iex> Identicon.main("test")
+      [9, 143, 107, 205, 70, 33, 211, 115, 202, 222, 78, 131, 38, 39, 180, 246]
   """
   @spec compute_md5(String) :: String
   def compute_md5(input) do
