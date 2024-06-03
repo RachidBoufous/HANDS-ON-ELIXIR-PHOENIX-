@@ -10,10 +10,24 @@ defmodule Identicon do
      if we provide the same string twice, the same identicon should be produced.
   """
 
- 
+
   def main(input) do
     input
     |> compute_md5
+    |> pick_color()
+  end
+
+  @doc """
+    Takes an Image structure and return list of RGB value based on the first three values in our hex list
+  ## Examples:
+        iex> Identicon.main("test")
+        [9, 143, 107]
+  """
+  @spec pick_color(String) :: List
+  def pick_color(image) do
+   %Identicon.Image{hex: hex_list} = image
+   [r, g, b | _tail] = hex_list
+   [r, g, b]
   end
 
   @doc """
@@ -21,12 +35,16 @@ defmodule Identicon do
 
   ## Examples:
       iex> Identicon.main("test")
-      [9, 143, 107, 205, 70, 33, 211, 115, 202, 222, 78, 131, 38, 39, 180, 246]
+      %Identicon.Image{
+        hex: [9, 143, 107, 205, 70, 33, 211, 115, 202, 222, 78, 131, 38, 39, 180, 246]
+      }
   """
   @spec compute_md5(String) :: String
   def compute_md5(input) do
-    :crypto.hash(:md5, input)
+    hex = :crypto.hash(:md5, input)
     |> :binary.bin_to_list
+
+    %Identicon.Image{hex: hex}
   end
 
 
