@@ -14,23 +14,30 @@ defmodule Identicon do
   def main(input) do
     input
     |> compute_md5
-    |> pick_color()
+    |> pick_color
+    |> build_grid
+  end
+
+
+  def build_grid(image) do
+    
   end
 
   @doc """
     Takes an Image structure and return list of RGB value based on the first three values in our hex list
   ## Examples:
         iex> Identicon.main("test")
-        [9, 143, 107]
+        %Identicon.Image{
+          color: {9, 143, 107},
+          hex: [9, 143, 107, 205, 70, 33, 211, 115, 202, 222, 78, 131, 38, 39, 180, 246]
+        }
   """
   @spec pick_color(String) :: List
-  def pick_color(image) do
-   %Identicon.Image{hex: [r, g, b | _tail]} = image
-
-   # updating a the image by adding rgb value
-   %Identicon.Image{image | color: {r,g,b}} # we don't update existing data but we create new record
+  def pick_color(%Identicon.Image{hex: [r, g, b | _tail]} = image) do
+    # we can move our pattern matching to the arg list. elixir allows you to do so
+    # updating a the image by adding rgb value
+    %Identicon.Image{image | color: {r,g,b}} # we don't update existing data but we create new record
    # here we are updating the map telling it to keep everything we have in image but update the color
-
 
   end
 
