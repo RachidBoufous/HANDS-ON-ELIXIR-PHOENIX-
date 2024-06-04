@@ -25,9 +25,13 @@ defmodule Identicon do
   """
   @spec pick_color(String) :: List
   def pick_color(image) do
-   %Identicon.Image{hex: hex_list} = image
-   [r, g, b | _tail] = hex_list
-   [r, g, b]
+   %Identicon.Image{hex: [r, g, b | _tail]} = image
+
+   # updating a the image by adding rgb value
+   %Identicon.Image{image | color: {r,g,b}} # we don't update existing data but we create new record
+   # here we are updating the map telling it to keep everything we have in image but update the color
+
+
   end
 
   @doc """
