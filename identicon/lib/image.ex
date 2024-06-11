@@ -3,5 +3,5 @@ defmodule Identicon.Image do
       will represent all the information about generated images like it's hex code, color.
   """
 
-  defstruct hex: nil, color: nil
+  defstruct hex: nil, color: nil, grid: nil
 end

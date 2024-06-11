@@ -19,8 +19,20 @@ defmodule Identicon do
   end
 
 
-  def build_grid(image) do
-    
+  def build_grid(%Identicon.Image{hex: hex} = image) do
+    grid =
+    hex
+        |> Enum.chunk(3)
+        |> Enum.map(&mirror_row/1) # we are invoking only the mirror row func with 1 param
+        # for every row we have please run mirror row function.
+        |> List.flatten
+        |> Enum.with_index
+    %Identicon.Image{image | grid: grid }
+  end
+
+  def mirror_row(row) do
+    [first, second | _tail] = row # get the first the second but thhe rest just leave it in tail
+    row ++ [second, first] # append new list to the other list list concatination
   end
 
   @doc """
