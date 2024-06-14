@@ -11,4 +11,10 @@ defmodule DiscussWeb.PageController do
   def about(conn, _params) do
     render(conn, :about, layout: false)
   end
+
+
+
+  def allTopics(conn, _params) do
+    render(conn, :topics, layout: false)
+  end
 end
